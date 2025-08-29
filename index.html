@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dean’s Restaurant & Bakery — Low-Fi Wireframes v1</title>
+  <meta name="description" content="Low-fidelity, mobile-first wireframes for a family-owned Southern restaurant and bakery.">
+  <style>
+    :root{
+      --ink:#1e1f23; --muted:#6a6d76; --panel:#f5f5f7; --stroke:#d6d7db;
+      --accent:#111; --rail:#e9e9ed; --max:1200px; --radius:14px;
+      --gap: clamp(.8rem, 2.8vw, 1.25rem);
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink)}
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.5rem .75rem;background:#fff;border:2px solid #000;z-index:1000}
+    header.site{position:sticky; top:0; z-index:10; background:var(--rail); border-bottom:1px solid var(--stroke)}
+    .wrap{max-width:var(--max); margin:auto; padding:.9rem clamp(12px,3vw,24px)}
+    .row{display:flex; align-items:center; gap:1rem}
+    .logo-box{width:120px;height:44px;border:2px dashed var(--stroke);border-radius:10px;background:#fff}
+    nav.primary{margin-left:auto}
+    nav.primary a{display:inline-block; padding:.35rem .7rem; margin:.1rem; color:var(--ink); text-decoration:none; border-radius:8px}
+    nav.primary a[aria-current="page"]{outline:2px solid #bbb}
+    .wf-controls{background:#fff; border-bottom:1px dashed var(--stroke)}
+    .wf-controls .wrap{display:flex; gap:.75rem; align-items:center}
+    section{padding: clamp(26px,5vw,64px) 0; border-bottom:1px solid var(--rail)}
+    .container{max-width:var(--max); margin:auto; padding:0 clamp(12px,3vw,24px)}
+    .section-head{display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:1rem}
+    .section-head h2{margin:0; font-size: clamp(1.15rem, 2.6vw, 1.6rem)}
+    .hint{color:var(--muted); font-size:.9rem}
+    .box{background:var(--panel); border:1.5px dashed var(--stroke); border-radius:var(--radius); min-height:70px}
+    .box.labelled{position:relative}
+    .box.labelled:before{content:attr(data-label); position:absolute; top:.45rem; left:.6rem; font-size:.8rem; color:#7b7e87}
+    .hero{display:grid; grid-template-columns:1fr; gap:var(--gap)}
+    .hero .visual{min-height:220px}
+    .hero .copy{padding:1rem}
+    .cta-row{display:grid; grid-template-columns:1fr; gap:.6rem; margin-top:.25rem}
+    .btn{display:inline-block; background:var(--accent); color:#fff; padding:.65rem .9rem; border-radius:10px; text-decoration:none; text-align:center}
+    .board{display:grid; gap:var(--gap)}
+    .board .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:var(--gap)}
+    .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:var(--gap)}
+    .card{border:1.5px dashed var(--stroke); border-radius:var(--radius); padding:.9rem; background:var(--panel)}
+    .thumb{height:140px; border-radius:10px; background:#fff; border:1px dashed var(--stroke)}
+    .meta{display:flex; justify-content:space-between; align-items:center; margin-top:.6rem; color:var(--muted)}
+    form.miniform{display:grid; grid-template-columns:1fr; gap:.6rem}
+    .field{display:grid; gap:.25rem}
+    .field input, .field select, .field textarea{padding:.6rem .7rem; border:1px solid var(--stroke); border-radius:10px; background:#fff}
+    .cols{display:grid; grid-template-columns:1fr; gap:var(--gap)}
+    .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:var(--gap)}
+    .ph{aspect-ratio:4/3; background:#fff; border:1px dashed var(--stroke); border-radius:10px}
+    .visit-grid{display:grid; grid-template-columns:1fr; gap:var(--gap)}
+    .map{height:300px}
+    footer.site{background:var(--rail); border-top:1px solid var(--stroke)}
+    .foot-grid{display:grid; grid-template-columns:1fr; gap:var(--gap)}
+    .sticky-bar{position:fixed; inset:auto 0 0 0; display:flex; gap:.5rem; background:#111; color:#fff; padding:.55rem .8rem; justify-content:center; z-index:50}
+    .sticky-bar a{color:#fff; text-decoration:none; padding:.5rem .85rem; background:#222; border-radius:10px}
+    @media (min-width:760px){
+      .hero{grid-template-columns:1.2fr .9fr}
+      .cols{grid-template-columns:1.1fr 1fr}
+      .visit-grid{grid-template-columns:1fr 1fr}
+      .foot-grid{grid-template-columns:1.2fr 1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site" role="banner">
+    <div class="wrap row">
+      <div class="brand-hold" aria-label="Brand">
+        <div class="logo-box" aria-hidden="true"></div>
+        <strong>Dean’s Restaurant & Bakery</strong>
+      </div>
+      <nav class="primary" aria-label="Main">
+        <a href="#" aria-current="page">Home</a>
+        <a href="#today">Today</a>
+        <a href="#menu">Menu</a>
+        <a href="#bakery">Bakery</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wf-controls">
+    <div class="wrap">
+      <label for="wfView">Wireframe view:</label>
+      <select id="wfView" aria-label="Choose a page template">
+        <option value="home" selected>Home</option>
+        <option value="today">Today (Specials & Notices)</option>
+        <option value="menu">Menu (Meat-and-Three)</option>
+        <option value="bakery">Bakery (Pre-Order)</option>
+        <option value="about">About (Story)</option>
+        <option value="gallery">Gallery</option>
+        <option value="visit">Visit / Contact</option>
+      </select>
+      <span class="hint">Neutral boxes only; replace with real components later.</span>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section data-page="home" aria-labelledby="home-title">
+      <div class="container">
+        <div class="hero">
+          <div class="box labelled visual" data-label="Hero image (signature plate + bakery item + exterior)"></div>
+          <div class="box labelled copy" data-label="H1 + short sub + 3 primary CTAs">
+            <h1 style="margin:0 0 .4rem">Cooked from scratch. Baked with love.</h1>
+            <p class="hint">Short promise line goes here. No lorem, keep it meaningful.</p>
+            <div class="cta-row">
+              <a class="btn" href="#today">See Today’s Specials</a>
+              <a class="btn" href="#menu">View Menu</a>
+              <a class="btn" href="#visit">Get Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head" style="margin-top: clamp(28px, 5vw, 48px)">
+          <h2 id="home-title">Today’s Board (auto)</h2>
+          <div class="hint">Drives from a simple sheet or CMS field; staff updates once.</div>
+        </div>
+        <div class="board">
+          <div class="box labelled" data-label="Banner: It’s Friday — Country-fried Steak, Banana Pudding; Pies: Chess & Coconut"></div>
+          <div class="grid">
+            <div class="box labelled" data-label="Special #1 card"></div>
+            <div class="box labelled" data-label="Special #2 card"></div>
+            <div class="box labelled" data-label="Bakery highlight"></div>
+          </div>
+        </div>
+
+        <div class="section-head" style="margin-top: clamp(28px, 5vw, 48px)">
+          <h2>Menu Highlights</h2>
+          <div class="hint">6–9 clickable dish cards → Menu detail.</div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="thumb" aria-hidden="true"></div>
+            <h3 style="margin:.6rem 0 .15rem">Chicken-fried Steak</h3>
+            <div class="meta"><span class="hint">Short blurb</span><span class="hint">$ — market</span></div>
+          </div>
+          <div class="card"><div class="thumb"></div><h3 style="margin:.6rem 0 .15rem">Meatloaf</h3><div class="meta"><span class="hint">Short blurb</span><span class="hint">$</span></div></div>
+          <div class="card"><div class="thumb"></div><h3 style="margin:.6rem 0 .15rem">Veg Plate (3)</h3><div class="meta"><span class="hint">Vegetarian-friendly</span><span class="hint">$</span></div></div>
+          <div class="card"><div class="thumb"></div><h3 style="margin:.6rem 0 .15rem">Fried Chicken</h3><div class="meta"><span class="hint">Short blurb</span><span class="hint">$</span></div></div>
+          <div class="card"><div class="thumb"></div><h3 style="margin:.6rem 0 .15rem">Chicken & Dumplings</h3><div class="meta"><span class="hint">Short blurb</span><span class="hint">$</span></div></div>
+          <div class="card"><div class="thumb"></div><h3 style="margin:.6rem 0 .15rem">Catfish (Fri)</h3><div class="meta"><span class="hint">Day-based</span><span class="hint">$</span></div></div>
+        </div>
+
+        <div class="section-head" style="margin-top: clamp(28px, 5vw, 48px)">
+          <h2>Pre-Order from the Bakery</h2>
+          <div class="hint">Whole pies & cakes; simple form → email/SMS.</div>
+        </div>
+        <form class="miniform box labelled" data-label="Form fields: name, phone, item, pickup date, notes">
+          <div class="field"><label for="bItem">Item</label><select id="bItem"><option>Chess Pie</option><option>Coconut Cream</option><option>Chocolate Layer Cake</option></select></div>
+          <div class="field"><label for="bDate">Pickup date</label><input id="bDate" type="date" /></div>
+          <div class="field"><label for="bName">Your name</label><input id="bName" type="text" /></div>
+          <div class="field"><label for="bPhone">Phone</label><input id="bPhone" type="tel" /></div>
+          <div class="field"><label for="bNotes">Notes</label><textarea id="bNotes" rows="3"></textarea></div>
+          <div><a class="btn" href="#">Send Pre-Order</a></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="today" data-page="today" aria-labelledby="today-title" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2 id="today-title">Today — Specials & Notices</h2>
+          <div class="hint">Auto-pulls by weekday; includes holiday/closure notices.</div>
+        </div>
+        <div class="box labelled" data-label="Hero banner: Today is… with 2–3 specials + pie flavors"></div>
+        <div class="cards" style="margin-top:1rem">
+          <div class="card"><div class="thumb"></div><h3>Plate Special</h3><p class="hint">Short description</p></div>
+          <div class="card"><div class="thumb"></div><h3>Veg of the Day</h3><p class="hint">e.g., Turnip greens</p></div>
+          <div class="card"><div class="thumb"></div><h3>Pie Flavor</h3><p class="hint">e.g., Coconut cream</p></div>
+          <div class="card"><div class="thumb"></div><h3>Cookie/Bar</h3><p class="hint">e.g., Pecan bar</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" data-page="menu" aria-labelledby="menu-title" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2 id="menu-title">Menu — Meat-and-Three</h2>
+          <div class="hint">Filters: Popular • Meat • Vegetables • Kids • Gluten-friendly</div>
+        </div>
+        <div class="box labelled" data-label="Legend: V (veg-friendly) • GF (gluten-friendly) • Contains nuts"></div>
+        <div class="cards" style="margin-top:1rem">
+          <div class="card"><div class="thumb"></div><h3>Meats</h3><p class="hint">Chicken-fried steak, Meatloaf, Fried chicken…</p></div>
+          <div class="card"><div class="thumb"></div><h3>Vegetables</h3><p class="hint">Green beans, Collards, Mac & cheese…</p></div>
+          <div class="card"><div class="thumb"></div><h3>Plates</h3><p class="hint">Veg plate (3), Kids plate…</p></div>
+          <div class="card"><div class="thumb"></div><h3>Desserts</h3><p class="hint">Banana pudding, Chess pie…</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bakery" data-page="bakery" aria-labelledby="bakery-title" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2 id="bakery-title">Bakery — Whole Pies & Cakes</h2>
+          <div class="hint">Grid of items + preorder CTA; lead-time notice.</div>
+        </div>
+        <div class="cards">
+          <div class="card"><div class="thumb"></div><h3>Chess Pie</h3><p class="hint">Classic Southern</p></div>
+          <div class="card"><div class="thumb"></div><h3>Coconut Cream</h3><p class="hint">Toasted coconut</p></div>
+          <div class="card"><div class="thumb"></div><h3>Chocolate Cake</h3><p class="hint">Two-layer</p></div>
+          <div class="card"><div class="thumb"></div><h3>Pecan Bars</h3><p class="hint">By the dozen</p></div>
+        </div>
+        <div class="box labelled" data-label="Pre-order strip (CTA)"></div>
+      </div>
+    </section>
+
+    <section id="about" data-page="about" aria-labelledby="about-title" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2 id="about-title">Our Story</h2>
+          <div class="hint">Family photo + origin; green-beans signature callout.</div>
+        </div>
+        <div class="cols">
+          <div class="box labelled" data-label="Story copy block (quote, timeline, values)"></div>
+          <div class="box labelled" data-label="Photos: family, Jackson Square, kitchen/bakery"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" data-page="gallery" aria-labelledby="gallery-title" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2 id="gallery-title">Gallery</h2>
+          <div class="hint">Lazy-loaded, swipe on mobile.</div>
+        </div>
+        <div class="gallery">
+          <div class="ph" aria-hidden="true"></div>
+          <div class="ph" aria-hidden="true"></div>
+          <div class="ph" aria-hidden="true"></div>
+          <div class="ph" aria-hidden="true"></div>
+          <div class="ph" aria-hidden="true"></div>
+          <div class="ph" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="visit" data-page="visit" aria-labelledby="visit-title" hidden>
+      <div class="container">
+        <div class="section-head">
+          <h2 id="visit-title">Visit / Contact</h2>
+          <div class="hint">Hours, tap-to-call, map, parking, accessibility note.</div>
+        </div>
+        <div class="visit-grid">
+          <div class="box labelled" data-label="Hours + NAP + buttons: Call • Directions"></div>
+          <div class="box labelled map" data-label="Map embed placeholder"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site" role="contentinfo">
+    <div class="container foot-grid">
+      <div class="box labelled" data-label="Address + hours + social"></div>
+      <div class="box labelled" data-label="Mini menu links"></div>
+      <div class="box labelled" data-label="Newsletter / preorder note"></div>
+    </div>
+  </footer>
+
+  <div class="sticky-bar" role="navigation" aria-label="Quick actions">
+    <a href="#call">Call</a>
+    <a href="#directions">Directions</a>
+  </div>
+
+  <script>
+    const view = document.getElementById('wfView');
+    const pages = document.querySelectorAll('[data-page]');
+    function setView(v){
+      pages.forEach(p => { p.hidden = p.getAttribute('data-page') !== v; });
+      document.querySelectorAll('nav.primary a').forEach(a=>a.removeAttribute('aria-current'));
+      const link = document.querySelector(`nav.primary a[href="#${v}"]`) || document.querySelector('nav.primary a[href="#"]');
+      if(link) link.setAttribute('aria-current','page');
+    }
+    setView('home');
+    view.addEventListener('change', e => setView(e.target.value));
+  </script>
+</body>
+</html>
